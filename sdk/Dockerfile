@@ -15,3 +15,8 @@ RUN git clone --branch ${FLUTTER_VERSION} https://github.com/flutter/flutter.git
 RUN yes | flutter doctor --android-licenses \
     && flutter doctor \
     && chown -R root:root ${FLUTTER_HOME}
+    
+RUN apt update
+RUN apt install -y ruby ruby-dev rubygems
+# Install fastlane.
+RUN gem install fastlane -NV
